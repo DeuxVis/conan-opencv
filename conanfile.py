@@ -67,10 +67,10 @@ class OpenCVConan(ConanFile):
     }
 
     default_options = (
-        "shared=False", 
-        "with_cuda=False",
-        "with_opengl=False",
-        "with_qt=False",
+        "shared=True", 
+        "with_cuda=True",
+        "with_opengl=True",
+        "with_qt=True",
         "with_tbb=False",
         "with_calib3d=True",
         "with_features2d=True",
@@ -81,50 +81,50 @@ class OpenCVConan(ConanFile):
         "with_ml=True",
         "with_objectdetect=True",
         "with_photo=True",
-        "with_shape=False",
-        "with_stitching=False",
-        "with_superres=False",
-        "with_ts=False",
+        "with_shape=True",
+        "with_stitching=True",
+        "with_superres=True",
+        "with_ts=True",
         "with_video=True",
         "with_videoio=True",
         "with_videostab=True",
         "with_viz=False",
-        "with_python2=False",
-        "with_python3=False",
-        "with_aruco=False",
-        "with_bgsegm=False",
-        "with_bioinspired=False",
-        "with_ccalib=False",
-        "with_dataset=False",
-        "with_dnn=False",
-        "with_dnn_objdetect=False",
-        "with_dpm=False",
-        "with_face=False",
-        "with_freetype=False",
-        "with_fuzzy=False",
-        "with_hdf=False",
-        "with_hfs=False",
-        "with_img_hash=False",
-        "with_line_descriptor=False",
-        "with_optflow=False",
-        "with_phase_unwrapping=False",
-        "with_plot=False",
-        "with_reg=False",
-        "with_rgbd=False",
-        "with_saliency=False",
-        "with_sfm=False",
-        "with_stereo=False",
-        "with_structured_light=False",
-        "with_surface_matching=False",
-        "with_text=False",
-        "with_tracking=False",
-        "with_xfeatures2d=False",
-        "with_ximgproc=False",
-        "with_xobjdetect=False",
-        "with_xphoto=False",
+        "with_python2=True",
+        "with_python3=True",
+        "with_aruco=True",
+        "with_bgsegm=True",
+        "with_bioinspired=True",
+        "with_ccalib=True",
+        "with_dataset=True",
+        "with_dnn=True",
+        "with_dnn_objdetect=True",
+        "with_dpm=True",
+        "with_face=True",
+        "with_freetype=True",
+        "with_fuzzy=True",
+        "with_hdf=True",
+        "with_hfs=True",
+        "with_img_hash=True",
+        "with_line_descriptor=True",
+        "with_optflow=True",
+        "with_phase_unwrapping=True",
+        "with_plot=True",
+        "with_reg=True",
+        "with_rgbd=True",
+        "with_saliency=True",
+        "with_sfm=True",
+        "with_stereo=True",
+        "with_structured_light=True",
+        "with_surface_matching=True",
+        "with_text=True",
+        "with_tracking=True",
+        "with_xfeatures2d=True",
+        "with_ximgproc=True",
+        "with_xobjdetect=True",
+        "with_xphoto=True",
         )
 
-    url = "https://github.com/ulricheck/conan-opencv"
+    url = "https://github.com/pollen-metrology/conan-opencv"
     license = "http://http://opencv.org/license.html"
     generators = "cmake"
     short_paths = True
@@ -145,9 +145,9 @@ class OpenCVConan(ConanFile):
 
     def requirements(self):
         if self.options.with_qt:
-            self.requires("Qt/[>=5.7.0]@camposs/stable")
+            self.requires("Qt/5.9.2@pollen/release")
         if self.options.with_viz:
-            self.requires("vtk/[>=8.0.0]@camposs/stable")
+            self.requires("vtk/8.0.1]@pollen/release")
 
     def source(self):
         source_url = "https://github.com/opencv/opencv/archive/{0}.tar.gz".format(self.version)

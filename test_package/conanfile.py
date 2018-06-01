@@ -14,9 +14,13 @@ class TestPackageConan(ConanFile):
         cmake.configure()
         cmake.build()
 
+    def imports(self):
+        self.copy(pattern="*.dll", dst="bin", src="bin")
+        self.copy(pattern="*.dylib", dst="bin", src="lib")
+
     def test(self):
         bin_path = os.path.join("bin", "test_package")
-    	if self.settings.os == "Macos":
-    		self.run('DYLD_LIBRARY_PATH=%s %s' % (os.environ['DYLD_LIBRARY_PATH'], bin_path))
-    	else:
-	        self.run(bin_path)
+        if self.settings.os == "Macos":
+            self.run('DYLD_LIBRARY_PATH=%s %s' % (os.environ['DYLD_LIBRARY_PATH'], bin_path))
+        else:
+            self.run(bin_path)
